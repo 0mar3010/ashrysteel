@@ -1,0 +1,105 @@
+---
+const facilityImg = 'https://images.unsplash.com/photo-1636887584784-954392022b75';
+
+const facilities = [
+  { place: 'Qalyubia', since: '2010', focus: 'Pipe rolling — cut-to-length, slitting, and pipe lines, ½″ to 12″' },
+  { place: '6th of October City', since: '—', focus: 'Rebar rolling mill, plus the Galfa complex: lighting poles, structural towers, and the largest galvanizing line in the Middle East' },
+  { place: 'Sadat City', since: 'Acquired 2022', focus: 'Arcosteel — pre-stressed wire, special steel for rail and industry' },
+  { place: '10th of Ramadan', since: '—', focus: 'Industrial distribution arm' },
+];
+---
+
+<section id="facilities" class="facilities section-pad">
+  <div class="container facilities__layout">
+    <div class="facilities__media reveal">
+      <img
+        src={`${facilityImg}?auto=format&fit=crop&w=1200&q=75`}
+        srcset={`${facilityImg}?auto=format&fit=crop&w=700&q=75 700w, ${facilityImg}?auto=format&fit=crop&w=1200&q=75 1200w`}
+        sizes="(max-width: 900px) 100vw, 45vw"
+        alt="Interior of an industrial steel facility with piping and structural framework"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="facilities__content reveal">
+      <h2 class="section-heading">Four sites, one supply chain.</h2>
+
+      <dl class="facility-list">
+        {facilities.map((f) => (
+          <div class="facility-list__row">
+            <dt>{f.place} <span class="facility-list__since">{f.since}</span></dt>
+            <dd>{f.focus}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>
+
+<style>
+  .facilities__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .facilities__media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .facilities__content h2 {
+    margin-bottom: var(--space-xl);
+  }
+
+  .facility-list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .facility-list__row {
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid color-mix(in oklch, var(--color-ink) 10%, transparent);
+  }
+
+  .facility-list__row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .facility-list dt {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .facility-list__since {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    color: var(--color-blue);
+    font-weight: 600;
+  }
+
+  .facility-list dd {
+    margin: 0;
+    color: var(--color-ink-dim);
+    font-size: var(--text-sm);
+    max-width: 48ch;
+  }
+
+  @media (min-width: 900px) {
+    .facilities__layout {
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: center;
+    }
+
+    .facilities__media img {
+      aspect-ratio: 3 / 4;
+    }
+  }
+</style>

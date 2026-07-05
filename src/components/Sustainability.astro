@@ -1,0 +1,82 @@
+---
+---
+
+<section id="sustainability" class="sustainability section-pad">
+  <div class="container sustainability__layout">
+    <div class="sustainability__lead reveal">
+      <h2 class="section-heading">Emissions are becoming a market requirement, not just a metric.</h2>
+    </div>
+
+    <div class="sustainability__body reveal">
+      <blockquote>
+        <span class="sustainability__quote-mark" aria-hidden="true">&ldquo;</span>
+        We are adopting green steel technologies to boost access to European markets.
+        <cite>— Ayman El Ashry, Group Chairman</cite>
+      </blockquote>
+      <p>
+        As carbon border rules tighten across the EU, decarbonized steel is shifting from
+        a reputational choice to a condition of export. ashrysteel's investment in cleaner
+        production is built around that reality — access to the markets our customers'
+        projects increasingly answer to.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sustainability__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .sustainability__lead {
+    max-width: 34rem;
+  }
+
+  .sustainability__body {
+    max-width: 42rem;
+  }
+
+  blockquote {
+    position: relative;
+    margin: 0 0 var(--space-lg);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--color-ink);
+    line-height: 1.3;
+  }
+
+  .sustainability__quote-mark {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--color-blue);
+    margin-bottom: var(--space-xs);
+  }
+
+  blockquote cite {
+    display: block;
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-style: normal;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-faint);
+  }
+
+  .sustainability__body > p {
+    color: var(--color-ink-dim);
+  }
+
+  @media (min-width: 900px) {
+    .sustainability__layout {
+      grid-template-columns: 1fr 1.3fr;
+      gap: var(--space-3xl);
+    }
+  }
+</style>

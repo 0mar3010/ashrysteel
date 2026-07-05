@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Products from '../components/Products.astro';
+import CapacityPlate from '../components/CapacityPlate.astro';
+import Facilities from '../components/Facilities.astro';
+import FieldRecord from '../components/FieldRecord.astro';
+import Sustainability from '../components/Sustainability.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base
+  title="ashrysteel — Egyptian Steel Manufacturing Since 1983"
+  description="ashrysteel manufactures rebar, structural steel, and fabricated products from four Egyptian facilities, supplying national infrastructure and exporting to 30 countries."
+>
+  <Nav />
+  <main id="main-content">
+    <Hero />
+    <Products />
+    <CapacityPlate />
+    <Facilities />
+    <FieldRecord />
+    <Sustainability />
+    <QuoteForm />
+  </main>
+  <Footer />
+</Base>

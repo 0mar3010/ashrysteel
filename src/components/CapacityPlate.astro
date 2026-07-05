@@ -1,0 +1,144 @@
+---
+const specs = [
+  { label: 'Founded', value: '1983' },
+  { label: 'Annual capacity', value: '2–3M tons' },
+  { label: 'Export markets', value: '30' },
+  { label: 'Galvanizing line', value: '10,000', note: 'tons/mo, largest in the Middle East' },
+];
+---
+
+<section id="capacity" class="capacity section-pad">
+  <div class="container">
+    <div class="capacity__intro reveal">
+      <h2>Numbers a procurement team can verify.</h2>
+      <p class="lead section-lead">Scale, on the record — every figure below is one your team can check against the source.</p>
+    </div>
+
+    <div class="stat-grid reveal">
+      {specs.map((spec) => (
+        <div class="stat">
+          <span class="stat__value">{spec.value}</span>
+          <span class="stat__label">{spec.label}{spec.note && <> — {spec.note}</>}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="certifications reveal">
+      <div class="certifications__text">
+        <h3>Manufactured to standard, verified on request</h3>
+        <p>
+          Every rebar and section ashrysteel ships conforms to Egyptian and international
+          steel standards. Certificate documentation is issued per order — ask your
+          account contact for the specific standard your project requires.
+        </p>
+      </div>
+      <ul class="cert-badges">
+        <li>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Egyptian Standards (ES)
+        </li>
+        <li>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Compliant international grades
+        </li>
+        <li>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Per-order mill certificates
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .capacity__intro {
+    max-width: 42rem;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .capacity__intro h2 {
+    font-size: var(--text-display-sm);
+  }
+
+  .capacity__intro .section-lead {
+    margin-top: var(--space-md);
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl) var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .stat__value {
+    color: var(--color-blue);
+  }
+
+  .stat__label {
+    display: block;
+  }
+
+  .certifications {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    padding-top: var(--space-2xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .certifications__text h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-sm);
+    color: var(--color-ink);
+  }
+
+  .certifications__text p {
+    color: var(--color-ink-dim);
+    max-width: var(--measure);
+  }
+
+  .cert-badges {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .cert-badges li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-dim);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-xs) var(--space-md);
+  }
+
+  .cert-badges li svg {
+    flex-shrink: 0;
+    color: var(--color-blue);
+  }
+
+  @media (min-width: 700px) {
+    .stat-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .certifications {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--space-2xl);
+    }
+  }
+</style>

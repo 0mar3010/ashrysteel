@@ -1,0 +1,89 @@
+---
+const heroImg = 'https://images.unsplash.com/photo-1697281679321-a9ce55ce0a8f';
+---
+
+<section class="hero">
+  <img
+    class="hero__img"
+    src={`${heroImg}?auto=format&fit=crop&w=2400&q=75`}
+    srcset={`${heroImg}?auto=format&fit=crop&w=900&q=75 900w,
+             ${heroImg}?auto=format&fit=crop&w=1600&q=75 1600w,
+             ${heroImg}?auto=format&fit=crop&w=2400&q=75 2400w`}
+    sizes="100vw"
+    alt="Molten steel being poured at an ashrysteel foundry"
+    fetchpriority="high"
+  />
+  <div class="hero__scrim" aria-hidden="true"></div>
+
+  <div class="container hero__content">
+    <h1 class="hero__headline">Steel behind Egypt's biggest builds.</h1>
+    <p>Since 1983, Ashry Steel has produced precision-engineered structural steel, reinforcement bar, and industrial solutions for Egypt's most demanding construction, energy, and infrastructure projects.</p>
+    <a href="#contact" class="btn btn--on-dark">Contact Us</a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 88svh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--color-charcoal);
+  }
+
+  .hero__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center  top;
+  }
+
+  .hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background-color:#0000005c;
+    z-index:99;
+  }
+
+  .hero__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      0deg,
+      color-mix(in oklch, var(--color-charcoal-deep) 92%, transparent) 0%,
+      color-mix(in oklch, var(--color-charcoal-deep) 55%, transparent) 32%,
+      transparent 62%
+    );
+  }
+
+  .hero__content {
+    position: relative;
+    padding-block: var(--space-xl) var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    z-index:999;
+  }
+
+  .hero__headline {
+    font-size: var(--text-display-lg);
+    color: var(--color-ink-on-dark);
+    max-width: 18ch;
+    text-transform:uppercase;
+  }
+
+  .hero__content p {
+    color: #d2d3d4;
+  }
+
+  @media (min-width: 640px) {
+    .hero {
+      min-height: 92svh;
+    }
+  }
+</style>

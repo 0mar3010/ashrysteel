@@ -1,0 +1,139 @@
+---
+const year = new Date().getFullYear();
+
+const footerNav = [
+  { href: '#products', label: 'Products' },
+  { href: '#capacity', label: 'Capacity' },
+  { href: '#facilities', label: 'Facilities' },
+  { href: '#sustainability', label: 'Sustainability' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <div class="site-footer__plate">
+        <img src="/images/ashrysteel-lockup.png" alt="Ashry Steel — حديد العشري" width="112" height="112" />
+      </div>
+      <p>Egyptian steel manufacturing and fabrication, established 1983. Cairo, Egypt.</p>
+      <button class="lang-toggle" type="button" disabled title="Arabic version coming soon">عربي — Coming soon</button>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="Footer">
+      <p class="label">Site</p>
+      <ul>
+        {footerNav.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="site-footer__contact">
+      <p class="label">Contact</p>
+      <ul>
+        <li><a href="tel:+201024999929">+20 10 2499 9929</a></li>
+        <li><a href="mailto:info@elashrygroup.com">info@elashrygroup.com</a></li>
+        <li>5 Mohamed Thaqeb St, Zamalek, Cairo</li>
+      </ul>
+    </div>
+
+    <div class="site-footer__certs">
+      <p class="label">Standards</p>
+      <ul>
+        <li>Egyptian Standards (ES)</li>
+        <li>Compliant international grades</li>
+        <li>Certificates issued per order</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <p>&copy; {year} Ashry Steel Group. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-white);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-3xl);
+  }
+
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .site-footer__brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .site-footer__plate {
+    background: var(--color-blue);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md);
+    width: fit-content;
+  }
+
+  .site-footer__plate img {
+    display: block;
+    width: 96px;
+    height: 96px;
+  }
+
+  .site-footer__brand p {
+    color: var(--color-ink-dim);
+    font-size: var(--text-sm);
+    max-width: 32ch;
+  }
+
+  .site-footer nav ul,
+  .site-footer__contact ul,
+  .site-footer__certs ul {
+    list-style: none;
+    margin: var(--space-sm) 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .site-footer a {
+    color: var(--color-ink-dim);
+    text-decoration: none;
+    font-size: var(--text-sm);
+  }
+
+  .site-footer a:hover,
+  .site-footer a:focus-visible {
+    color: var(--color-blue);
+  }
+
+  .site-footer__certs li,
+  .site-footer__contact li:last-child {
+    color: var(--color-ink-dim);
+    font-size: var(--text-sm);
+  }
+
+  .site-footer__bottom {
+    border-top: 1px solid color-mix(in oklch, var(--color-ink) 8%, transparent);
+    padding-block: var(--space-lg);
+  }
+
+  .site-footer__bottom p {
+    margin: 0;
+    font-size: var(--text-xs);
+    color: var(--color-ink-faint);
+  }
+
+  @media (min-width: 900px) {
+    .site-footer__grid {
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    }
+  }
+</style>

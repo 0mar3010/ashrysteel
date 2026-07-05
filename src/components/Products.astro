@@ -1,0 +1,153 @@
+---
+const rebarImg = 'https://images.unsplash.com/photo-1763771420303-0f11ccf613d1';
+const pipesImg = 'https://images.unsplash.com/photo-1759064776046-45b988af4b6d';
+const weldImg = 'https://images.unsplash.com/photo-1730584476141-232435a40c32';
+
+const products = [
+  {
+    img: rebarImg,
+    lead: true,
+    alt: 'Bundled steel reinforcing bar coils ready for shipment',
+    label: 'Rebar & Sections',
+    title: 'Reinforcing steel from 10mm to 40mm',
+    copy: 'Including B420 DWR, our high-strength seismic-resistant rebar grade engineered for lower steel usage without compromising load-bearing capacity. Also: equal angles to 50×6mm, flat bars to 50×10mm.',
+  },
+  {
+    img: pipesImg,
+    alt: 'Close-up of industrial steel pipes and tube-forming machinery',
+    label: 'Pipes & Flat Steel',
+    title: 'ERW tube, coil, and sheet',
+    copy: 'Electric-resistance-welded pipe from ½″ to 12″, cut-to-length and slit coil, corrugated sheet.',
+  },
+  {
+    img: weldImg,
+    alt: 'Welder fabricating structural steel components, sparks visible',
+    label: 'Fabricated & Structural',
+    title: 'Lighting poles to 30m, towers, scaffolding',
+    copy: '15,000+ lighting poles supplied to government infrastructure, plus transmission towers, cable trays, and greenhouse steel structures.',
+  },
+  {
+    img: null,
+    label: 'Special Steel — Arcosteel',
+    title: 'Pre-stressed wire for rail, coil for industry',
+    copy: 'Stranded and pre-stressed wire for railway sleepers, plus coils and columns for automotive, gearbox, and pump manufacturing — 60% exported to 30 countries.',
+  },
+];
+---
+
+<section id="products" class="products section-pad">
+  <div class="container">
+    <div class="products__intro reveal">
+      <h2>Four decades of rolling, welding, and shaping steel.</h2>
+      <p class="lead section-lead">
+        From reinforcing bar to pre-stressed rail wire, every product line runs through
+        our own mills — not a trading desk.
+      </p>
+    </div>
+
+    <div class="products__filmstrip reveal">
+      {products.map((p) => (
+        <figure class={`product-tile ${p.lead ? 'product-tile--lead' : ''} ${!p.img ? 'product-tile--text' : ''}`}>
+          {p.img && (
+            <img
+              src={`${p.img}?auto=format&fit=crop&w=${p.lead ? 1200 : 800}&q=75`}
+              srcset={`${p.img}?auto=format&fit=crop&w=500&q=75 500w, ${p.img}?auto=format&fit=crop&w=${p.lead ? 1200 : 800}&q=75 ${p.lead ? 1200 : 800}w`}
+              sizes={p.lead ? '(max-width: 900px) 100vw, 50vw' : '(max-width: 900px) 50vw, 25vw'}
+              alt={p.alt}
+              loading="lazy"
+            />
+          )}
+          <figcaption>
+            <span class="label">{p.label}</span>
+            <h3>{p.title}</h3>
+            <p>{p.copy}</p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .products__intro {
+    max-width: 42rem;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .products__intro h2 {
+    font-size: var(--text-display-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .products__filmstrip {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .product-tile {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .product-tile img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .product-tile--text {
+    justify-content: flex-start;
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .product-tile figcaption h3 {
+    font-size: var(--text-lg);
+    margin-block: var(--space-xs) var(--space-xs);
+    color: var(--color-ink);
+  }
+
+  .product-tile figcaption p {
+    color: var(--color-ink-dim);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+
+  @media (min-width: 640px) {
+    .products__filmstrip {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-tile--lead {
+      grid-column: span 2;
+    }
+
+    .product-tile--lead img {
+      aspect-ratio: 21 / 9;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .products__filmstrip {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .product-tile--lead {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .product-tile--lead img {
+      aspect-ratio: 4 / 3;
+      height: 100%;
+    }
+
+    .product-tile--lead {
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+  }
+</style>
